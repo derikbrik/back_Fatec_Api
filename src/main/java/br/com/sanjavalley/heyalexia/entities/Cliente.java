@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -31,6 +33,10 @@ public class Cliente {
 	 
 	 @Column(name="CLIENTE_EMAIL")
 	 private String ClienteEmail;
+	 
+	 @ManyToOne(optional = true)
+	 @JoinColumn(name= "Endereco_id", referencedColumnName= "Enderece_Id", nullable  =true)
+	 private Endereco endereco;
 	 
 	 @Column(name="ENDERECO_ID")
 	 private Long Endereco_Id;
